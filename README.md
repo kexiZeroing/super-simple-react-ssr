@@ -11,7 +11,7 @@ Client-Side Hydration:
 - Hydration attaches event listeners and makes the static content interactive.
 - The client-side React must receive the same data used for server rendering to ensure consistency.
 
-### Problems with SSR and SSR Streaming
+## Problems with SSR and SSR Streaming
 Read: https://tigerabrodi.blog/why-is-react-server-components-actually-beneficial-full-history
 
 1. Hydration cost
@@ -71,12 +71,12 @@ It's important that the server keeps the connection open so it can stream the HT
 
 The problem we still have is that we download JS for every component even if it's just displaying data (static content). So that's what RSC tries to solve.
 
-### Why use webpack-node-externals
+## Why use webpack-node-externals
 1. When building a server-side application, you don't want to bundle Node.js core modules (e.g., fs, path, http). These modules are available natively in the Node.js runtime, so including them in the bundle is unnecessary.
 2. Server-side applications typically use many dependencies from `node_modules`, but you can keep `node_modules` dependencies as require statements in the output file, so they are resolved at runtime rather than bundled.
 3. If you're writing a library for Node.js, you likely don't want to bundle dependencies. This avoids duplicating dependencies for consumers of your library.
 
-### Next.js pages router
+## Next.js pages router
 
 ```js
 const pages = readdirSync(join(process.cwd(), "pages")).map(
